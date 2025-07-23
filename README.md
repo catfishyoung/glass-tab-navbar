@@ -7,9 +7,8 @@
 ## 🌟 Features
 
 - Beautiful glassmorphism design
-- Animated active tab with smooth "bump-up" effect
+- Animated active tab with smooth bump-up effect
 - Fully responsive and mobile-friendly
-- Lightweight – no JavaScript framework required
 - FontAwesome icons support
 
 ## 🛠️ Usage
