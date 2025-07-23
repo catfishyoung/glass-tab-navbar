@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+body {
+  background: linear-gradient(135deg, #e0e7ef 0%, #b6c6e6 100%);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    backdrop-filter: blur(18px) saturate(1.5);
+    -webkit-backdrop-filter: blur(18px) saturate(1.5);
+    border-radius: 2.5rem;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    padding: 1.2rem 2.5rem;
+    display: flex;
+    gap: 2.5rem;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+    clip-path: var(--navbar-clip, none);
+    -webkit-clip-path: var(--navbar-clip, none);
+    transition:
+      padding 0.5s cubic-bezier(.68,-0.55,.27,1.55),
+      border-radius 0.5s cubic-bezier(.68,-0.55,.27,1.55),
+      box-shadow 0.5s cubic-bezier(.68,-0.55,.27,1.55),
+      clip-path 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+  }
+  
+nav a {
+  color: #222;
+  text-decoration: none;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+  position: relative;
+  padding: 0.5rem 1.2rem;
+  transition: 
+    color 0.2s,
+    transform 0.38s cubic-bezier(.68,-0.55,.27,1.55),
+    box-shadow 0.38s cubic-bezier(.68,-0.55,.27,1.55),
+    background 0.3s;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  outline: none;
+  z-index: 1;
+  font-weight: 500;
+  background: none;
+}
+
+nav a i {
+  margin-right: 0.6em;
+  font-size: 1.2em;
+  transition: transform 0.18s cubic-bezier(.68,-0.55,.27,1.55), color 0.2s;
+  color: #3a7bd5;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 18%;
+  bottom: 0.18em;
+  width: 64%;
+  height: 2.5px;
+  background: linear-gradient(90deg, #b5d9e4 0%, #43e97b 100%);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.32s cubic-bezier(.68,-0.55,.27,1.55);
+  z-index: 1;
+  box-shadow: 0 2px 8px #3a7bd544;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  transform: scaleX(1);
+}
+
+nav a:hover i {
+  color: #43e97b;
+}
+
+nav a.active {
+  color: #3a7bd5;
+  font-weight: bold;
+  background: none;
+  box-shadow: none;
+  transform: translateY(-2.2rem) scale(1.18);
+  z-index: 2;
+}
+nav a.active i {
+  color: #43e97b;
+  transform: scale(1.22) rotate(-8deg);
+  filter: drop-shadow(0 2px 8px #43e97b55);
+}
+
+nav a:active {
+  transform: translateY(-2.4rem) scale(1.22);
+}
+nav a:active i {
+  transform: scale(1.28) rotate(-12deg);
+}
+
+nav.expanded a:not(.active) {
+  opacity: 0.82;
+  filter: blur(0.2px);
+}
+
+nav::before {
+    content: '';
+    position: absolute;
+    top: -1.6rem;
+    left: var(--bump-x, 0px);
+    width: 7.5rem;
+    height: 3.2rem;
+    background: rgba(255, 255, 255, 0.24);
+    border-radius: 2.5rem;
+    box-shadow: 0 4px 20px rgba(31, 38, 135, 0.14);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    filter: blur(0.3px);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-50%) scaleX(0.7) scaleY(1);
+    transition:
+      left 0.45s cubic-bezier(.68,-0.55,.27,1.55),
+      opacity 0.35s ease,
+      transform 0.45s cubic-bezier(.68,-0.55,.27,1.55);
+    z-index: 0;
+}
+nav.bump-active::before {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1.02) scaleY(1);
+}
+nav.bump-animating::before {
+    transition:
+      left 0.25s cubic-bezier(.68,-0.55,.27,1.55),
+      opacity 0.25s,
+      transform 0.25s cubic-bezier(.68,-0.55,.27,1.55);
+    /* squash: kéo dài */
+    transform: translateX(-50%) scaleX(1.3) scaleY(0.95);
+}
+nav.bump-bounce::before {
+    /* stretch: nảy lên */
+    transition:
+      transform 0.22s cubic-bezier(.68,-0.55,.27,1.55);
+    transform: translateX(-50%) scaleX(1.02) scaleY(1.13);
+}
+
+nav a.active {
+    color: #3a7bd5;
+    font-weight: bold;
+    background: none;
+    box-shadow: none;
+    transform: translateY(-1.6rem) scale(1.18);
+    z-index: 2;
+    transition: transform 0.32s cubic-bezier(.68,-0.55,.27,1.55), color 0.2s;
+}
+nav.tab-animating a.active {
+    transform: translateY(-1.6rem) scale(1.28);
+    transition: transform 0.22s cubic-bezier(.68,-0.55,.27,1.55), color 0.2s;
+}
+  

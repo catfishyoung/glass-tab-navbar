@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nav Bar Beautiful</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+</head>
+<body>
+  <nav>
+    <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+    <a href="#"><i class="fas fa-info-circle"></i> About</a>
+    <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="#"><i class="fas fa-blog"></i> Blog</a>
+    <a href="#"><i class="fas fa-user"></i> Profile</a>
+  </nav>
+
+  <script>
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelectorAll('nav a');
+    let bumpTimeout1, bumpTimeout2;
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        updateNav(true);
+        e.preventDefault();
+      });
+    });
+    window.addEventListener('resize', () => updateNav(false));
+    updateNav(false);
+  </script>
+  
+</body>
+</html>
